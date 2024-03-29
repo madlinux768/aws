@@ -1,3 +1,6 @@
+# This is an inefficient way to determine what CloudWatch namespaces are receiving the most events over a given time. Used to understand what could be contributing to PutMetricData cost.
+# ListMetrics and GetMetricStatistics each cost $0.01 per 1,000 requests. Running this script can cost in excess of $100. Best to query only the namespaces you think are most active.
+
 import boto3
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
